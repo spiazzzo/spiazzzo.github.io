@@ -1,0 +1,514 @@
+/* RESET BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* CONTAINER GENERICO */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+/* HEADER COMUNE */
+.comune-header {
+  background-color: #003366;
+  color: white;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.comune-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.logo-comune {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-comune img {
+  height: 50px;
+  width: auto;
+}
+.logo-comune h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.nav-comune ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw; /* simile a 24px su schermi grandi */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-comune ul li a {
+  color: white;
+  font-weight: 60%;
+  font-size: 1.3vw; /* circa 16px su schermi grandi */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+
+/* SLIDER */
+.slider-container {
+  position: relative;
+  max-width: 800px;
+  height: 450px;
+  margin: 2rem auto;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.slide.active {
+  display: block;
+}
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* FRECCE */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+.prev:hover, .next:hover {
+  background: rgba(0,0,0,0.8);
+}
+.prev {
+  left: 10px;
+}
+.next {
+  right: 10px;
+}
+
+/* PUNTINI */
+.slider-controls {
+  text-align: center;
+  margin: 15px 0;
+}
+.dot {
+  cursor: pointer;
+  height: 14px;
+  width: 14px;
+  margin: 0 6px;
+  background: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+.dot.active {
+  background: #ffcc00;
+}
+
+/* ANTEPRIME */
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px auto 40px;
+  flex-wrap: wrap;
+}
+.thumb {
+  width: 120px;
+  height: 70px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 3px solid transparent;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.thumb:hover {
+  transform: scale(1.1);
+  border-color: #999;
+}
+.thumb.active {
+  border-color: #ffcc00;
+  transform: scale(1.1);
+}
+
+/* INTRO */
+.intro {
+  text-align: center;
+  max-width: 80%;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.intro-box {
+  display: flex;
+  gap: 20px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 100%;
+  margin: 2rem auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  flex-wrap: wrap;
+}
+
+.intro-text {
+  flex: 2;
+  font-size: 1.1rem;
+  color: #333;
+  min-width: 50%;
+}
+
+.intro-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 280px;
+}
+
+.intro-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+.intro h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.intro p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #444;
+}
+
+/* QUADRETTONI */
+.quadrettoni .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 3rem auto 4rem;
+  padding: 0 1rem;
+  max-width: 1100px;
+}
+.grid-item {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+.grid-item:hover {
+  transform: translateY(-5px);
+}
+.grid-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.grid-item p {
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* SOCIAL */
+.social {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.social h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.7rem;
+}
+.social a {
+  color: #003366;
+  font-size: 2rem;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+.social a:hover {
+  color: #ffcc00;
+}
+
+
+.sociall {
+  text-align: center;
+}
+.sociall a {
+  color: #003366;
+  font-size: 2rem;
+  transition: color 0.3s ease;
+}
+.sociall a:hover {
+  color: #ffcc00;
+}
+
+
+/* Per allineare tutti gli elementi dell'header in riga */
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Contenitore padre (esempio: .container nel header) */
+.container {
+  position: relative; /* serve per posizionamento assoluto figli */
+}
+
+/* Icona GitHub */
+.github-icon {
+  font-size: 3rem;
+  color: #FFFFFF;
+  position: absolute;
+  top: 50%;            /* verticale a metà contenitore */
+  right: 1rem;         /* distanza a destra */
+  transform: translateY(-50%); /* per centrare esattamente verticalmente */
+  z-index: 1000;
+}
+
+
+.github-icon a {
+  color: inherit;
+  transition: color 0.5s ease;
+}
+
+.github-icon a:hover {
+  color: #ffcc00;
+}
+
+
+/* FOOTER */
+footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+.footer-content {
+  padding: 1rem;
+}
+.footer-content a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+}
+.footer-content a:hover {
+  border-bottom-color: #ffcc00;
+}
+
+
+/* FORM STILI GENERICI */
+form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"],
+form textarea,
+form select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #ff8800;
+  outline: none;
+}
+
+/* Campo email evidenziato in arancione se non valido */
+form input:invalid[type="email"] {
+  border-color: orange;
+}
+
+/* Radio inline */
+.radio-group {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center; /* CENTRA orizzontalmente */
+  margin-top: 0.5rem;
+}
+
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* Checkbox gruppo (aspetti) */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.checkbox-group label {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: normal;
+}
+
+/* Pulsante invio */
+form button[type="submit"] {
+  background-color: #003366;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+  background-color: #ff8800;
+}
+
+/* Messaggi di errore */
+.form-error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .comune-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-comune ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .slider-container {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+  .logo-comune h1 {
+    font-size: 1.25rem;
+  }
+  .logo-comune img {
+    height: 40px;
+  }
+  .intro h2 {
+    font-size: 1.5rem;
+  }
+  .intro p {
+    font-size: 1rem;
+  }
+  .thumb {
+    width: 80px;
+    height: 50px;
+  }
+}
+/* Fade-in up (scroll animation) */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Input focus */
+input, textarea, select {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: #ffcc00;
+  box-shadow: 0 0 8px #ffcc00;
+  outline: none;
+}
+
+/* Pulsante invia */
+button[type="submit"] {
+  background-color: #003366;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+button[type="submit"]:hover {
+  background-color: #ffcc00;
+  color: #003366;
+  transform: scale(1.05);
+}
+button[type="submit"]:active {
+  transform: scale(0.95);
+}
